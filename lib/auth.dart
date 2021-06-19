@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
+
 import 'package:altrp/pages/PageExpert.dart';
 import 'package:altrp/services/authServer.dart';
 import 'package:flutter/cupertino.dart';
@@ -114,6 +119,8 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
     void _loginButtonAction() async {
       _email = _emailController.text;
       _password = _passwordController.text;
+      print(_email);
+      print(_password);
 
       if(_email.isEmpty || _password.isEmpty) PageExpert();
       try {
@@ -121,6 +128,10 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
       } catch (e) {
         PageExpert();
       }
+
+      final request =  await _authServer.makePostRequest(_email, _password);
+      print(request);
+      User user = User.fromJson(jsonDecode(request));
       if(user.token!=null)
       {
 

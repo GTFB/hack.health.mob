@@ -9,16 +9,17 @@ class AuthServer{
   late final bool connectUser;
   late Uri uri = Uri.parse('https://hack.medin.cloud/login');
 
-  _makePostRequest(String email, String password) async {
+  makePostRequest(String email, String password) async {
     // set up POST request arguments
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json = '{altrp_ajax: true, email: "'+email+'", password: "'+password+'"}';
+    String json = '{email: "'+email+'", password: "'+password+'"}';
     // make POST request
     Response response = await post(uri, headers: headers, body: json);
     // check the status code for the result
     int statusCode = response.statusCode;
     // this API passes back the id of the new item added to the body
     String body = response.body;
+    return body;
   }
   Future<User> fetchAlbum() async {
     final response =

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // указываем исходную страницу, которую мы создадим позже
-      home: HomePage(),
+      home: HomePageEx(),
     );
   }
 }

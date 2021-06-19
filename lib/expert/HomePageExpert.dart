@@ -21,22 +21,30 @@ class _HomePageExState extends State<HomePageEx> {
           appBar: AppBar(
             centerTitle: true,
             title: Text('Медэкспертиза'),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                },
+              ),
+            ],
             backgroundColor: Colors.blue,
           ),
           drawer: Drawer(
             child: new ListView(
               children: <Widget>[
                 new DrawerHeader(
-                  margin: EdgeInsets.zero,
+                  margin: EdgeInsets.zero, //altrp/example.jpg
                   padding: EdgeInsets.zero,
                   child: UserAccountsDrawerHeader (
-                    decoration: BoxDecoration(color: Colors.blue),
-                    accountName: Text('Екатерина Дажкова'),
-                    accountEmail: Text("home@mail.ru"),
+                    decoration: BoxDecoration(color: Colors.white),
+                    accountName: Text('Екатерина Дажкова', style: TextStyle(fontSize: 14, color: Colors.black),),
+                    accountEmail: Text("ekaterina_dajkova@gmail.com", style: TextStyle(fontSize: 14, color: Colors.black)),
                     currentAccountPicture: Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.green,
+                        decoration: new BoxDecoration(
+                            image: new DecorationImage(
+                              image: new NetworkImage('https://visatimes.ru/wp-content/uploads/2018/12/foto-na-pasport-rf.jpg'),
+                            )
                         )
                     ),
                   ),

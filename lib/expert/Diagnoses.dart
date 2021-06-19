@@ -1,136 +1,84 @@
 //Diagnoses
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Analytics.dart';
+import 'Appeals.dart';
+import 'Patients.dart';
+import 'Specialists.dart';
+
 class Diagnoses extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Api Filter list Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new ExamplePage(),
-    );
-  }
-}
-
-class ExamplePage extends StatefulWidget{
-  // ExamplePage({ Key key }) : super(key: key);
-  @override
-  _ExamplePageState createState() => new _ExamplePageState();
-}
-
-class _ExamplePageState extends State<ExamplePage> {
-  // final formKey = new GlobalKey<FormState>();
-  // final key = new GlobalKey<ScaffoldState>();
-  final TextEditingController _filter = new TextEditingController();
-  final dio = new Dio();
-  String _searchText = "";
-  List names = [];
-  List filteredNames = [];
-  Icon _searchIcon = new Icon(Icons.search);
-  Widget _appBarTitle = new Text( 'Search Example' );
-
-  _ExamplePageState() {
-    _filter.addListener(() {
-      if (_filter.text.isEmpty) {
-        setState(() {
-          _searchText = "";
-          filteredNames = names;
-        });
-      } else {
-        setState(() {
-          _searchText = _filter.text;
-        });
-      }
-    });
-  }
 
   @override
-  void initState() {
-    this._getNames();
-    super.initState();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildBar(context),
-      body: Container(
-        child: _buildList(),
-      ),
-      resizeToAvoidBottomInset: false,
-    );
-
-  }
-
-
-  PreferredSizeWidget _buildBar(BuildContext context) {
-    return new AppBar(
-      centerTitle: true,
-      title: _appBarTitle,
-      leading: new IconButton(
-        icon: _searchIcon,
-        onPressed: _searchPressed,
-      ),
-    );
-  }
-
-  Widget _buildList() {
-    if (!(_searchText.isEmpty)) {
-      List tempList = [];
-      for (int i = 0; i < filteredNames.length; i++) {
-        if (filteredNames[i]['name'].toLowerCase().contains(_searchText.toLowerCase())) {
-          tempList.add(filteredNames[i]);
-        }
-      }
-      filteredNames = tempList;
-    }
-    return ListView.builder(
-      itemCount: names == null ? 0 : filteredNames.length,
-      itemBuilder: (BuildContext context, int index) {
-        return new ListTile(
-          title: Text(filteredNames[index]['name']),
-          onTap: () => print(filteredNames[index]['name']),
-        );
-      },
-    );
-  }
-
-  void _searchPressed() {
-    setState(() {
-      if (this._searchIcon.icon == Icons.search) {
-        this._searchIcon = new Icon(Icons.close);
-        this._appBarTitle = new TextField(
-          controller: _filter,
-          decoration: new InputDecoration(
-              prefixIcon: new Icon(Icons.search),
-              hintText: 'Search...'
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Аналитика'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+            },
           ),
-        );
-      } else {
-        this._searchIcon = new Icon(Icons.search);
-        this._appBarTitle = new Text( 'Search Example' );
-        filteredNames = names;
-        _filter.clear();
-      }
-    });
+        ],
+
+      ),
+      drawer: Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new DrawerHeader(
+              margin: EdgeInsets.zero, //altrp/example.jpg
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader (
+                decoration: BoxDecoration(color: Colors.white),
+                accountName: Text('Екатерина Дажкова', style: TextStyle(fontSize: 14, color: Colors.black),),
+                accountEmail: Text("ekaterina_dajkova@gmail.com", style: TextStyle(fontSize: 14, color: Colors.black)),
+                currentAccountPicture: Container(
+                    decoration: new BoxDecoration(
+                        image: new DecorationImage(
+                          image: new NetworkImage('https://visatimes.ru/wp-content/uploads/2018/12/foto-na-pasport-rf.jpg'),
+                        )
+                    )
+                ),
+              ),
+            ),
+            new ListTile(
+                leading: Icon(Icons.people_alt_sharp),
+                title: new Text("Пациенты"),
+                onTap: (){Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Patients()));}
+            ),
+            new ListTile(
+                leading: Icon(Icons.message),
+                title: new Text("Обращения"),
+                onTap: (){Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Appeals()));
+                }
+            ),
+            new ListTile(
+                leading: Icon(Icons.document_scanner),
+                title: new Text("Диагнозы"),
+                onTap: (){Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Diagnoses()));}
+            ),
+            new ListTile(
+                leading: Icon(Icons.person),
+                title: new Text("Специалисты"),
+                onTap: (){Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Specialists()));}
+            ),
+            new ListTile(
+                leading: Icon(Icons.find_in_page),
+                title: new Text("Аналитика"),
+                onTap: (){Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>Analytics()));}
+            )
+          ],
+        ),
+      ),
+      body: Center(
+      ),
+    );
   }
-
-  void _getNames() async {
-    final response = await dio.get('https://stackoverflow.com/questions/');
-    print(response.statusCode);
-    List tempList = [];
-    for (int i = 0; i < response.data['results'].length; i++) {
-      tempList.add(response.data['results'][i]);
-    }
-    setState(() {
-      names = tempList;
-      names.shuffle();
-      filteredNames = names;
-    });
-  }
-
-
 }
