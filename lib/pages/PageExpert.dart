@@ -16,7 +16,7 @@ class PageExpert extends StatelessWidget {
       title: 'Json Placeholder App',
       // настройка темы, мы ещё вернёмся к этому
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.blue,
       ),
     );
   }

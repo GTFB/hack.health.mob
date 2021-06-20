@@ -6,12 +6,11 @@ import 'services/User.dart';
 import 'auth.dart';
 
 class LandingPage extends StatelessWidget {
+  final bool isLoggedIn = false;
   const LandingPage({key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bool isLoggedIn = false;
-
     return isLoggedIn ? PageExpert() : AuthorizationPage();
   }
 }

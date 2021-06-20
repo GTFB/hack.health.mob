@@ -76,6 +76,93 @@ class Patients extends StatelessWidget {
         ),
       ),
       body: Center(
+          child: Container(
+            color: Colors.white,
+            padding: EdgeInsets.all(10.0),
+            child: Table(
+              border: TableBorder.all(color: Colors.white),
+              children: [
+                TableRow(children: [
+                  Text('Имя    пациента', style: TextStyle(color: Colors.grey )),
+                  Text('Дата Создания', style: TextStyle(color: Colors.grey )),
+                  Text('Диагноз        по МКБ-10', style: TextStyle(color: Colors.grey )),
+                  Text('% соответствия', style: TextStyle(color: Colors.grey )),
+                ]),
+                
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Кирилл Инокентий'),
+                  Text('20.07.21'),
+                  Text('A00'),
+                  Text('93',style: TextStyle(color: Colors.greenAccent )),
+                  ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Игорь Инокентий'),
+                  Text('20.07.21'),
+                  Text('A20'),
+                  Text('96', style: TextStyle(color: Colors.greenAccent )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Татьяновна Иванова'),
+                  Text('20.07.21'),
+                  Text('В00'),
+                  Text('100', style: TextStyle(color: Colors.green )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Григорий Михайлов'),
+                  Text('20.07.21'),
+                  Text('A09'),
+                  Text('71', style: TextStyle(color: Colors.orangeAccent )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Карлам Ирнасов'),
+                  Text('20.07.21'),
+                  Text('В35'),
+                  Text('88', style: TextStyle(color: Colors.greenAccent )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Алина Крабова'),
+                  Text('20.07.21'),
+                  Text('В55'),
+                  Text('53', style: TextStyle(color: Colors.orangeAccent )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Историй Варганов'),
+                  Text('20.07.21'),
+                  Text('А45'),
+                  Text('92', style: TextStyle(color: Colors.greenAccent )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Авдос Ланасов'),
+                  Text('20.07.21'),
+                  Text('В99'),
+                  Text('100', style: TextStyle(color: Colors.green)),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Лена Томатова'),
+                  Text('20.07.21'),
+                  Text('В65'),
+                  Text('15', style: TextStyle(color: Colors.red )),
+                ]),
+                TableRow(children: [Text(' '),Text(' '),Text(' '),Text(' ')]),
+                TableRow(children: [
+                  Text('Виктор Аргентинов'),
+                  Text('20.07.21'),
+                  Text('А50'),
+                  Text('38', style: TextStyle(color: Colors.red )),
+                ])
+              ],
+            ),
+          )
       ),
     );
   }

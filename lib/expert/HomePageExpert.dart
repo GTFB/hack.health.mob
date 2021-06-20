@@ -17,6 +17,7 @@ class _HomePageExState extends State<HomePageEx> {
   Widget build(BuildContext context) {
     //корневой виджет для страницы или экрана
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -82,6 +83,13 @@ class _HomePageExState extends State<HomePageEx> {
                 )
               ],
             ),
+          ),
+          body:  Container(
+              decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: new NetworkImage('https://euroexperts.ru/wp-content/uploads/2017/05/medexp-po-documentam-e1496399868769.jpg'),
+                  )
+              )
           ),
         ));
   }

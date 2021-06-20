@@ -40,7 +40,7 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
           padding: EdgeInsets.only(top: 100),
         child: Container(
           child: Align(
-            child: Text("Вход в систему", style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black)
+            child: Text("Вход в систему", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black)
             ),
           ),
         )
@@ -55,13 +55,13 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
           obscureText: obsecure,
           style: TextStyle(fontSize: 20, color: Colors.black),
           decoration: InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
             hintText: hint,
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.blueGrey, width: 3)
+              borderSide: BorderSide(color: Colors.blue, width: 3)
             ),
               enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey, width: 1)
+                  borderSide: BorderSide(color: Colors.blue, width: 1)
               ),
             prefixIcon: Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
@@ -82,7 +82,7 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
           color: Colors.blue,
         child: Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor, fontSize: 20)
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)
         ),
         onPressed: (){
             func();
@@ -121,7 +121,10 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
       _password = _passwordController.text;
       print(_email);
       print(_password);
-
+      if(_email!=null&&_password!=null) {
+        LandingPage landingPage = new LandingPage();
+        _landingPage.isLoggedIn==true;
+      }
       if(_email.isEmpty || _password.isEmpty) PageExpert();
       try {
 
@@ -155,7 +158,7 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
               Padding(
                 padding: EdgeInsets.all(10),
                 child: GestureDetector(
-                    child: Text("Не зарегистрированы?", style: TextStyle(fontSize: 20, color: Colors.white)),
+                    child: Text("Сброс пароля", style: TextStyle(fontSize: 20, color: Colors.blue)),
                     onTap:(){
                       setState((){
                         showLogin = false;
@@ -167,11 +170,11 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
           )
               : Column(
             children: [
-              _form("Зарегистрироваться", _loginButtonAction),
+              _form("Войти", _loginButtonAction),
               Padding(
                 padding: EdgeInsets.all(10),
                 child: GestureDetector(
-                    child: Text("Уже зарегистрированы? Авторизуйтесь!", style: TextStyle(fontSize: 20, color: Colors.black)),
+                    child: Text("Сброс пароля", style: TextStyle(fontSize: 20, color: Colors.blue)),
                     onTap:(){
                       setState((){
                         showLogin = true;

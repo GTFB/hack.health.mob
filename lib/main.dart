@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'HomePage.dart';
+import 'expert/Appeals.dart';
 import 'expert/HomePageExpert.dart';
+import 'expert/appeals/assessment.dart';
 
 // main() является главной функцией с которой начинается
 // выполнение приложения
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
     // позволяет настроить тему и использовать
     // Material Design для разработки.
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // заголовок приложения
       // обычно виден, когда мы сворачиваем приложение
       title: 'Json Placeholder App',

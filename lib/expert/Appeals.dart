@@ -1,4 +1,4 @@
-import 'package:altrp/expert/appeals/rrr.dart';
+import 'package:altrp/expert/appeals/assessment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +6,10 @@ import 'Analytics.dart';
 import 'Diagnoses.dart';
 import 'Patients.dart';
 import 'Specialists.dart';
+import 'appeals/diet.dart';
+import 'appeals/medHelp.dart';
+import 'appeals/rehabilitation.dart';
+import 'appeals/tablet.dart';
 //Appeals
 class Appeals extends StatelessWidget {
   const Appeals({Key? key}) : super(key: key);
@@ -132,7 +136,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.local_florist_outlined),
             label: 'Реабилитация',
             backgroundColor: Colors.blue,
           ),
@@ -147,13 +151,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       case 0:
         return ProfilePage(); // Create this function, it should return your first page as a widget
       case 1:
-        return ProfilePage(); // Create this function, it should return your second page as a widget
+        return medHelp(); // Create this function, it should return your second page as a widget
       case 2:
-        return ProfilePage(); // Create this function, it should return your third page as a widget
+        return tablet(); // Create this function, it should return your third page as a widget
       case 3:
-        return ProfilePage();
+        return diet();
       case 4:
-        return ProfilePage();// Create this function, it should return your fourth page as a widget
+        return rehabilitation();// Create this function, it should return your fourth page as a widget
     }
 
     void _onItemTapped(int index) {

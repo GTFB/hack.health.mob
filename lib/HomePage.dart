@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     // позволяет настроить тему и использовать
     // Material Design для разработки.
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // заголовок приложения
       // обычно виден, когда мы сворачиваем приложение
       title: 'Json Placeholder App',
