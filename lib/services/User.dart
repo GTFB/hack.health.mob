@@ -1,10 +1,10 @@
 class User {
-  late final bool success;
-  late final String token;
+  final bool success;
+  final String token;
 
   User({
-    required this.success,
-    required this.token,
+    this.success,
+    this.token,
   });
 
   factory User.fromJson(Map<bool, dynamic> json) {

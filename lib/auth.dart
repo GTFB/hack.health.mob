@@ -27,7 +27,7 @@ class _AuthorizationPageState  extends State<AuthorizationPage>{
   var _email;
   var _password;
   bool showLogin = true;
-  late User user;
+  User user;
 
   AuthServer _authServer = AuthServer();
   LandingPage _landingPage = LandingPage();

@@ -12,7 +12,7 @@ import 'appeals/rehabilitation.dart';
 import 'appeals/tablet.dart';
 //Appeals
 class Appeals extends StatelessWidget {
-  const Appeals({Key? key}) : super(key: key);
+  const Appeals({Key key}) : super(key: key);
 
   static const String _title = 'Flutter Code Sample';
 
@@ -27,7 +27,7 @@ class Appeals extends StatelessWidget {
 
 /// This is the stateful widget that the main application instantiates.
 class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+  const MyStatefulWidget({Key key}) : super(key: key);
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();

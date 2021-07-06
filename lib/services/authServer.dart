@@ -6,8 +6,8 @@ import 'package:http/http.dart';
 import 'User.dart';
 
 class AuthServer{
-  late final bool connectUser;
-  late Uri uri = Uri.parse('https://hack.medin.cloud/login');
+  final bool connectUser = false;
+  Uri uri = Uri.parse('https://hack.medin.cloud/login');
 
   makePostRequest(String email, String password) async {
     // set up POST request arguments
@@ -40,7 +40,7 @@ class AuthServer{
     if(connectUser==true){
     }
   }
-  Stream<User>? get currentUser {
+  Stream<User> get currentUser {
     return null;
  }
 }
